@@ -279,9 +279,6 @@ docker exec my_lamp_c ip add
 4. Vérifier qu’ils sont sur le même réseau bridge.
 ![alt text](image-19.png)
 
-
-**Interprétation :**
-
 > ✏️ **Réponse :** le conteneur est attaché au réseau bridge Docker (interface `docker0` côté hôte) et reçoit une IP privée de ce sous-réseau.
 
 
