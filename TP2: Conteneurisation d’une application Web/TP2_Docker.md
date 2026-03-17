@@ -117,8 +117,8 @@ docker build -t my_lamp .
 ```bash
 docker images
 ```
+![alt text](image-6.png)
 
-![Build de l’image my_lamp](image-2.png)
 *Figure 3 : Construction de l’image `my_lamp` et vérification via `docker images`*
 
 ---
@@ -159,10 +159,10 @@ docker logs -ft my_lamp_c
 
 - URL : `http://localhost:8080/`
 
-![Exécution du conteneur my_lamp_c](image-3.png)
+![alt text](image-7.png)
 *Figure 4 : Lancement du conteneur `my_lamp_c` et vérification du statut*
 
-![Application Web accessible](image-4.png)
+![alt text](image-8.png)
 *Figure 5 : Affichage de l’application sur `http://localhost:8080/`*
 
 ---
@@ -170,6 +170,10 @@ docker logs -ft my_lamp_c
 ### IV. Test de persistance sans volume
 
 1. Ajouter un nouvel article depuis l’interface.
+
+![alt text](image-9.png)
+
+
 2. Détruire puis recréer le conteneur :
 
 ```bash
@@ -178,6 +182,8 @@ docker rm my_lamp_c
 docker run -d --name my_lamp_c -p 8080:80 my_lamp
 docker exec my_lamp_c chmod 777 -R /var/www/html
 ```
+![alt text](image-10.png)
+
 
 3. Vérifier l’existence de l’article déjà ajouté.
 
@@ -185,8 +191,8 @@ docker exec my_lamp_c chmod 777 -R /var/www/html
 
 > ✏️ **Réponse :** l’article est perdu, car les données de la base étaient stockées dans le conteneur supprimé (pas de volume persistant).
 
-![Test de persistance sans volume](image-5.png)
-*Figure 6 : Perte des données après suppression/recréation du conteneur sans volume*
+![alt text](image-11.png)
+*Figure 6 : Perte des données après suppression/recréation du conteneur sans volume (Liste vide)*
 
 ---
 
