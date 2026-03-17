@@ -337,24 +337,27 @@ docker push <HUB-USER>/<REPONAME>:first
 
 *Fin du TP 2 — Conteneurisation d’une application Web*
 
-## Modifications apportées au TP (corrections)
+## Modifications apportées au TP
+
+![alt text](<Screenshot from 2026-03-17 13-00-21.png>)
 
 Pour améliorer la robustesse et la maintenabilité de la stack LAMP fournie, nous avons apporté les modifications suivantes :
 
 - Ajout du script de démarrage `start.sh` (présent à la racine du TP). Ce script : démarre MariaDB, importe la base `articles.sql` une seule fois (repère via le fichier `/var/lib/mysql/.db_initialized`) puis lance Apache en avant-plan.
+
 - Mise à jour du `Dockerfile` pour copier `start.sh` dans l'image et utiliser `ENTRYPOINT ["/start.sh"]` au lieu d'une commande inline. Cela permet une meilleure gestion des signaux et un démarrage plus clair des services.
 
 Motifs : fiabilité du démarrage (éviter les erreurs d'import SQL causées par MariaDB non initialisé), éviter un ré-import à chaque redémarrage, et respecter les bonnes pratiques Docker (script de démarrage exécutable, `ENTRYPOINT` en forme JSON).
 
 Captures (remplacez ces fichiers par vos captures réelles) :
 
-![Script de démarrage (start.sh)](image-12.png)
+![alt text](image-3.png)
 *Figure 13 : Contenu du script `start.sh` ajouté*
 
-![Dockerfile modifié](image-13.png)
+![alt text](image-4.png)
 *Figure 14 : Extrait du `Dockerfile` montrant la copie et l'ENTRYPOINT*
 
-![Build & Run](image-14.png)
+![alt text](image-2.png)
 *Figure 15 : Exemple de sortie de `docker build` / `docker run` montrant l'image `my_lamp` démarrée*
 
 Si vous le souhaitez, je peux remplacer le `sleep 5` du script `start.sh` par une boucle d'attente qui teste la disponibilité de MariaDB (plus fiable). Dites-moi si je dois appliquer cette amélioration.
