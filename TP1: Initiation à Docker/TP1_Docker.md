@@ -523,4 +523,49 @@ docker ps -a
 
 ---
 
+
+---
+
+## Bonnes pratiques de sécurité Docker/VM
+
+Voici quelques recommandations à appliquer lors de l’utilisation de Docker sur une machine virtuelle :
+
+1. **Ne pas utiliser root pour tout**
+	- Créez un utilisateur dédié pour l’administration courante.
+	- N’utilisez `sudo` que pour les opérations nécessaires.
+
+2. **Limiter les droits Docker**
+	- Évitez d’ajouter tous les utilisateurs au groupe `docker` (ce groupe donne les droits root sur la machine).
+	- Privilégiez l’utilisation de `sudo docker ...` pour les opérations sensibles.
+
+3. **Sécuriser les conteneurs**
+	- Ne jamais lancer un conteneur avec `--privileged` sauf nécessité absolue.
+	- Utilisez l’option `--read-only` pour les conteneurs qui n’ont pas besoin d’écrire sur le système de fichiers.
+	- Montez explicitement les volumes nécessaires, en lecture seule si possible (`-v /host/path:/container/path:ro`).
+
+4. **Réseau**
+	- N’exposez que les ports nécessaires (`-p 8080:80` et pas `-p 0.0.0.0:80:80` si ce n’est pas utile).
+	- Utilisez des réseaux bridge personnalisés pour isoler les conteneurs.
+
+5. **Images**
+	- Utilisez des images officielles ou vérifiées.
+	- Mettez à jour régulièrement les images et supprimez celles qui sont obsolètes.
+
+6. **Suppression de conteneurs/images**
+	- Ne jamais exécuter de commandes destructives (`docker rm -f $(docker ps -aq)` ou `docker rmi -f $(docker images -q)`) sans vérification.
+	- Toujours vérifier l’ID ou le nom du conteneur/image avant suppression.
+
+7. **Logs et audit**
+	- Activez la journalisation des actions Docker.
+	- Surveillez les accès et les modifications sur la VM.
+
+8. **Sauvegarde**
+	- Sauvegardez régulièrement les volumes de données importants.
+
+9. **Sécurité système**
+	- Gardez la VM et Docker à jour (patchs de sécurité).
+	- Désactivez SSH root direct, utilisez des clés SSH, etc.
+
+---
+
 *Fin du TP 1 — Initiation à Docker*
