@@ -299,17 +299,20 @@ docker exec my_lamp_c ip add
 ```bash
 docker login
 ```
+![alt text](image-20.png)
 
 3. Vérifier la présence de l’image locale :
 
 ```bash
 docker images
 ```
+![alt text](image-21.png)
+
 
 4. Tagger l’image :
 
 ```bash
-docker tag my_lamp <HUB-USER>/<REPONAME>:first
+docker tag my_lamp talelchaanbi/my_lamp:first
 ```
 
 5. Vérifier le tag :
@@ -318,7 +321,7 @@ docker tag my_lamp <HUB-USER>/<REPONAME>:first
 docker images
 ```
 
-![Connexion Docker Hub et tag image](image-10.png)
+![alt text](image-22.png)
 *Figure 17 : Connexion à Docker Hub et ajout du tag à `my_lamp`*
 
 ---
@@ -326,14 +329,15 @@ docker images
 ### II. Publication
 
 ```bash
-docker push <HUB-USER>/<REPONAME>:first
+docker push talelchaanbi/my_lamp:first
 ```
+![alt text](image-23.png)
 
 **Vérification :**
 
 > ✏️ **Réponse :** l’image est visible dans le repository Docker Hub après le `push`.
 
-![Push vers Docker Hub](image-11.png)
+![alt text](image-24.png)
 *Figure 18 : Publication de l’image sur Docker Hub*
 
 ---
