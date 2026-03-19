@@ -1,0 +1,10 @@
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+*.log
+*.tmp
+TP1: Initiation à Docker/*.pdf
+TP2: Conteneurisation d’une application Web/*.pdf

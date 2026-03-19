@@ -1,14 +1,9 @@
 <div class="cover-page">
 
-<h1>Travaux Pratiques 1 : Initiation à Docker</h1>
+<h1>Support pédagogique 1 : Initiation à Docker</h1>
 
-<p class="cover-org"><strong>Institut Supérieur d'Informatique</strong></p>
-<p class="cover-org"><strong>Département Génie des Télécommunications et Réseaux (GTR)</strong></p>
-
-<p class="cover-meta"><strong>Module :</strong> Cloud Computing &amp; Virtualisation</p>
-<p class="cover-meta"><strong>Groupes :</strong> M1 SSII</p>
-<p class="cover-meta"><strong>Enseignant :</strong> Safa Réjichi</p>
-<p class="cover-meta"><strong>Réalisé par :</strong> Talel Chaanbi</p>
+<p class="cover-meta"><strong>Thème :</strong> Cloud Computing &amp; Virtualisation</p>
+<p class="cover-meta"><strong>Auteur :</strong> Talel Chaanbi</p>
 
 </div>
 
@@ -29,7 +24,7 @@
 Rendez-vous sur le site de Oracle Virtual Box afin de télécharger la dernière version du logiciel :  
 🔗 [https://www.virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads)
 
-![Page de téléchargement de VirtualBox](<Screenshot from 2026-03-11 09-50-43.png>)  
+![Page de téléchargement de VirtualBox](<images/Screenshot from 2026-03-11 09-50-43.png>)  
 *Figure 1 : Page officielle de téléchargement de VirtualBox*
 
 ---
@@ -39,10 +34,10 @@ Rendez-vous sur le site de Oracle Virtual Box afin de télécharger la dernière
 Rendez-vous sur le site de Ubuntu afin de télécharger la dernière version de l'OS :  
 🔗 [https://ubuntu.com/download/desktop](https://ubuntu.com/download/desktop)
 
-![Page de téléchargement d'Ubuntu](<Screenshot from 2026-03-11 09-51-38.png>)  
+![Page de téléchargement d'Ubuntu](<images/Screenshot from 2026-03-11 09-51-38.png>)  
 *Figure 2 : Page officielle de téléchargement d'Ubuntu Desktop*
 
-![Interface du logiciel VirtualBox](<Screenshot from 2026-03-11 10-07-08.png>)  
+![Interface du logiciel VirtualBox](<images/Screenshot from 2026-03-11 10-07-08.png>)  
 *Figure 3 : Interface principale du logiciel VirtualBox*
 
 ---
@@ -57,7 +52,7 @@ Créez la machine virtuelle appelée **Ubuntu** avec les paramètres suivants :
 | Mémoire RAM      | 3072 Mo   |
 | Disque dur       | 30 Go     |
 
-![Création de la machine virtuelle Ubuntu dans VirtualBox](image.png)  
+![Création de la machine virtuelle Ubuntu dans VirtualBox](images/image.png)  
 *Figure 4 : Configuration de la machine virtuelle Ubuntu (RAM : 3072 Mo, Disque : 30 Go)*
 
 ---
@@ -72,7 +67,7 @@ Il existe deux versions de Docker pour les systèmes Linux : **Docker CE** (Comm
 sudo apt-get update
 ```
 
-![Résultat de la mise à jour apt-get](image-1.png)  
+![Résultat de la mise à jour apt-get](images/image-1.png)  
 *Figure 5 : Mise à jour de la liste des packages (`sudo apt-get update`)*
 
 ---
@@ -83,7 +78,7 @@ sudo apt-get update
 sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
 ```
 
-![Installation des paquets pré-requis pour Docker](image-2.png)  
+![Installation des paquets pré-requis pour Docker](images/image-2.png)  
 *Figure 6 : Installation des dépendances nécessaires à Docker*
 
 ---
@@ -94,7 +89,7 @@ sudo apt-get install apt-transport-https ca-certificates curl software-propertie
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 ```
 
-![Ajout de la clé GPG du dépôt Docker](image-3.png)  
+![Ajout de la clé GPG du dépôt Docker](images/image-3.png)  
 *Figure 7 : Ajout de la clé GPG officielle du dépôt Docker*
 
 ---
@@ -105,7 +100,7 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o 
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 ```
 
-![Configuration du dépôt stable Docker CE](image-4.png)  
+![Configuration du dépôt stable Docker CE](images/image-4.png)  
 *Figure 8 : Ajout du dépôt officiel Docker CE dans les sources APT*
 
 ---
@@ -119,7 +114,7 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docke
 ```bash
 sudo apt-get update
 ```
-![Mise à jour de l'index APT](image-5.png)
+![Mise à jour de l'index APT](images/image-5.png)
 *Figure 9 : Résultat de `sudo apt-get update`*
 
 ---
@@ -129,7 +124,7 @@ sudo apt-get update
 ```bash
 sudo apt-get install docker-ce docker-ce-cli containerd.io
 ```
-![Installation de Docker Engine et containerd](image-6.png)
+![Installation de Docker Engine et containerd](images/image-6.png)
 *Figure 10 : Installation de Docker Engine et des composants associés*
 
 ---
@@ -139,7 +134,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io
 ```bash
 sudo docker --version
 ```
-![Affichage de la version de Docker installée](image-7.png)
+![Affichage de la version de Docker installée](images/image-7.png)
 *Figure 11 : Vérification de la version de Docker installée*
 
 ---
@@ -153,7 +148,7 @@ Par défaut, seul `root` peut lancer les commandes Docker. Voici comment autoris
 ```bash
 sudo groupadd docker
 ```
-![Création du groupe docker](image-8.png)
+![Création du groupe docker](images/image-8.png)
 *Figure 12 : Création du groupe `docker`*
 
 ---
@@ -163,7 +158,7 @@ sudo groupadd docker
 ```bash
 sudo usermod -aG docker $USER
 ```
-![Ajout de l'utilisateur au groupe docker](image-9.png)
+![Ajout de l'utilisateur au groupe docker](images/image-9.png)
 *Figure 13 : Ajout de l'utilisateur courant au groupe `docker`*
 
 ---
@@ -181,7 +176,7 @@ reboot
 ```bash
 docker --version
 ```
-![Vérification de Docker sans sudo](image-10.png)
+![Vérification de Docker sans sudo](images/image-10.png)
 *Figure 14 : Vérification que Docker fonctionne sans sudo (`docker --version` sans sudo)*
 
 ---
@@ -196,7 +191,7 @@ docker run hello-world
 
 > ✏️ **Réponse :** La commande `docker run hello-world` permet de vérifier que Docker fonctionne correctement. L'image `hello-world` est téléchargée (si elle n'est pas déjà présente), puis exécutée dans un conteneur. Le message affiché confirme que l'installation de Docker est réussie et que le moteur Docker est opérationnel. Le conteneur affiche un message de bienvenue puis s'arrête automatiquement.
 
-![Résultat de la commande docker run hello-world](image-11.png)
+![Résultat de la commande docker run hello-world](images/image-11.png)
 *Figure 15 : Message de succès après l'exécution du conteneur hello-world*
 
 ---
@@ -214,7 +209,7 @@ ou bien :
 ```bash
 docker images
 ```
-![Liste des images Docker](image-12.png)
+![Liste des images Docker](images/image-12.png)
 *Figure 16 : Résultat de `docker images` — liste des images locales*
 
 ---
@@ -235,7 +230,7 @@ Avec le nom de l'image :
 docker rmi <nom de l'image>
 ```
 
-![Message d'erreur lors de la suppression d'une image Docker](image-13.png)
+![Message d'erreur lors de la suppression d'une image Docker](images/image-13.png)
 *Figure 17 : Message d'erreur lors de la tentative de suppression d'une image Docker*
 
 ---
@@ -256,7 +251,7 @@ docker rmi -f hello-world
 ```
 
 
-![Suppression forcée de l'image hello-world](image-14.png)
+![Suppression forcée de l'image hello-world](images/image-14.png)
 *Figure 18 : Résultat de la suppression forcée d'une image Docker (`docker rmi -f hello-world`)*
 
 ---
@@ -270,7 +265,7 @@ docker rmi -f hello-world
 ```bash
 docker run ubuntu:latest
 ```
-![Création d'un conteneur Ubuntu](image-15.png)
+![Création d'un conteneur Ubuntu](images/image-15.png)
 *Figure 19 : Création d'un conteneur Ubuntu*
 
 ---
@@ -285,7 +280,7 @@ docker run -ti ubuntu:latest
 
 > ✏️ **Réponse :** *Le conteneur reste actif en mode interactif grâce à -ti. On peut travailler dans ce mini système Linux isolé.*
 
-![Lancement interactif d'Ubuntu](image-17.png)
+![Lancement interactif d'Ubuntu](images/image-17.png)
 *Figure 20 : Lancement interactif d'un conteneur Ubuntu (`docker run -ti ubuntu:latest`)*
 
 ---
@@ -295,7 +290,7 @@ docker run -ti ubuntu:latest
 ```bash
 ls
 ```
-![Résultat de ls dans le conteneur](image-18.png)
+![Résultat de ls dans le conteneur](images/image-18.png)
 *Figure 21 : Résultat de la commande `ls` dans le conteneur*
 
 ---
@@ -305,7 +300,7 @@ ls
 ```bash
 ip address
 ```
-![Résultat de ip address dans le conteneur](image-19.png)
+![Résultat de ip address dans le conteneur](images/image-19.png)
 *Figure 22 : Résultat de `ip address` dans le conteneur*
 
 ---
@@ -332,7 +327,7 @@ ip address
 
 > ✏️ **Réponse :** *eth0: inet 172.17.0.2/16*
  
-![Adresse IP du conteneur](image-20.png)
+![Adresse IP du conteneur](images/image-20.png)
 *Figure 23 : Adresse IP affichée pour le conteneur (ex. 172.17.0.2/16)*
 
 ---
@@ -346,7 +341,7 @@ ip address
 ```bash
 rm -rf /*
 ```
-![Destruction du conteneur](image-21.png)
+![Destruction du conteneur](images/image-21.png)
 *Figure 24 : Suppression des fichiers dans le conteneur (`rm -rf /*`) — exemple d'effet*
 
 ---
@@ -356,7 +351,7 @@ rm -rf /*
 ```bash
 ls
 ```
-![Vérification après destruction](image-22.png)
+![Vérification après destruction](images/image-22.png)
 *Figure 25 : Vérification de la destruction via `ls`*
 
 ---
@@ -378,7 +373,7 @@ docker run -ti --name conteneur_ubuntu ubuntu:latest
 ```bash
 ls
 ```
-![Résultat ls nouveau conteneur](image-24.png)
+![Résultat ls nouveau conteneur](images/image-24.png)
 *Figure 26 : Résultat de `ls` dans le nouveau conteneur `conteneur_ubuntu`*
 
 ---
@@ -399,7 +394,7 @@ ip address
 
 > ✏️ **Réponse :** *On lance l'installation de iproute2 d'abord puis on exécute ip address. Chaque conteneur possède sa propre adresse IP et son réseau isolé.*
 
-![ip address dans le nouveau conteneur](image-26.png)
+![ip address dans le nouveau conteneur](images/image-26.png)
 *Figure 27 : Résultat de `ip address` dans le nouveau conteneur*
 
 ---
@@ -409,7 +404,7 @@ ip address
 ```
 Ctrl + P + Q
 ```
-![Quitter le conteneur sans le détruire](image-27.png)
+![Quitter le conteneur sans le détruire](images/image-27.png)
 *Figure 28 : Illustration de la combinaison `Ctrl+P+Q` pour détacher du conteneur*
 
 ---
@@ -425,7 +420,7 @@ ou :
 ```bash
 docker ps
 ```
-![Liste des conteneurs actifs](image-28.png)
+![Liste des conteneurs actifs](images/image-28.png)
 *Figure 29 : Résultat de `docker container ls` / `docker ps`*
 
 ---
@@ -435,7 +430,7 @@ docker ps
 ```bash
 docker exec -ti conteneur_ubuntu bash
 ```
-![Exécution d'un shell dans le conteneur](image-29.png)
+![Exécution d'un shell dans le conteneur](images/image-29.png)
 *Figure 30 : Exécution d'un shell dans le conteneur (`docker exec -ti conteneur_ubuntu bash`)*
 
 ---
@@ -455,7 +450,7 @@ apt-get update && apt-get install iproute2
 ```bash
 echo "ceci est un fichier qui contient des donnes de test" > test.txt && cat test.txt
 ```
-![Création et affichage du fichier test.txt](image-30.png)
+![Création et affichage du fichier test.txt](images/image-30.png)
 *Figure 31 : Création et affichage du fichier `test.txt` dans le conteneur*
 
 ---
@@ -473,7 +468,7 @@ exit
 ```bash
 docker commit <CONTAINER NAME or ID> image_m1ssii
 ```
-![Commit du conteneur en image](image-31.png)
+![Commit du conteneur en image](images/image-31.png)
 *Figure 32 : Résultat de la commande `docker commit` — création de `image_m1ssii`*
 
 ---
@@ -483,7 +478,7 @@ docker commit <CONTAINER NAME or ID> image_m1ssii
 ```bash
 docker images
 ```
-![Liste des images après commit](image-32.png)
+![Liste des images après commit](images/image-32.png)
 *Figure 33 : Affichage de `docker images` montrant `image_m1ssii`*
 
 ---
@@ -502,7 +497,7 @@ docker run -ti --name conteneur_m1ssii image_m1ssii
 
 > ✏️ **Réponse :** *Les données ont été conservées dans la nouvelle image et sont présentes dans le conteneur créé à partir de cette image.*
 
-![Vérification des données conservées](image-33.png)
+![Vérification des données conservées](images/image-33.png)
 *Figure 34 : Vérification que `test.txt` est présent dans le conteneur créé à partir de `image_m1ssii`*
 
 ---
@@ -518,7 +513,7 @@ docker rm <CONTAINER NAME ou ID>
 ```bash
 docker ps -a
 ```
-![Liste complète des conteneurs (après suppression)](image-34.png)
+![Liste complète des conteneurs (après suppression)](images/image-34.png)
 *Figure 35 : Affichage de `docker ps -a` confirmant la suppression du conteneur*
 
 ---
